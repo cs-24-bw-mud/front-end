@@ -6,7 +6,8 @@ import {
     LOGIN_FAILURE,
     REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAILURE
+    REGISTER_FAILURE,
+    LOGOUT
 } from './Types';
 
 export const userLogin = (data, history) => {
@@ -17,7 +18,6 @@ export const userLogin = (data, history) => {
         .then(res => {
             localStorage.setItem('token', res.data.token);
             dispatch({type: LOGIN_SUCCESS, payload: res.data})
-            //this needs to push to game page
             history.push('/')
         })
         .catch(err => {
@@ -37,5 +37,13 @@ export const userRegister = data => dispatch => {
         .catch(err => {
             dispatch({type: REGISTER_FAILURE, payload: err});
         });
+};
+
+export const logout = (history) => {
+    return dispatch => {
+        dispatch({type: LOGOUT})
+        localStorage.removeItem('token')
+        history.push('/login')
+    }
 };
 

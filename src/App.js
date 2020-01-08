@@ -1,27 +1,26 @@
 import React from 'react';
 import { Switch, Route} from 'react-router-dom';
 
-
-// Switch/ Redirect Authroutes
-
-import Header from './components/Header';
 import GameMap from './components/Map';
 import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
+import ProtectedHeader from './components/header/ProtectedHeader';
+import Header from './components/header/Header';
 
+import ProtectedRoute from './utils/protectedRoute';
+import ProtectedNav from './utils/protectedNav';
 
 function App() {
   return (
     <div className="spa-container">
-        <Header />
+        <ProtectedNav path="/" component={ProtectedHeader}/>
       <h1 className="app-header">Cyber</h1>
         <Switch>
-          <Route exact path={"/"} component={GameMap}/>
           <Route path={"/about"} component={About}/>
           <Route path={"/login"} component={Login}/>
           <Route path={"/registration"} component={Register}/>
-          {/*Make Private*/}
+          <ProtectedRoute exact path="/" component={GameMap}/>
         </Switch>
     </div>
   );
