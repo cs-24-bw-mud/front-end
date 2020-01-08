@@ -13,7 +13,7 @@ export const userLogin = (data, history) => {
     return dispatch => {
         dispatch({type: LOGIN_START});
         return axiosWithAuth()
-        .post('auth/login', data)
+        .post('/api/login/', data)
         .then(res => {
             localStorage.setItem('token', res.data.token);
             dispatch({type: LOGIN_SUCCESS, payload: res.data})
@@ -29,10 +29,10 @@ export const userLogin = (data, history) => {
 export const userRegister = data => dispatch => {
     dispatch({type: REGISTER_START});
     return axiosWithAuth()
-        .post('/auth/register', data)
+        .post('/api/registration/', data)
         .then(res => {
             dispatch({type: REGISTER_SUCCESS, payload: res.data});
-            //this needs to push to game page
+            
         })
         .catch(err => {
             dispatch({type: REGISTER_FAILURE, payload: err});

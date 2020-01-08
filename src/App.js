@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route} from 'react-router-dom';
-import './App.scss';
+
 
 // Switch/ Redirect Authroutes
 
@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="spa-container">
         <Header />
-        Welcome to Game!
+      <h1 className="app-header">Cyber</h1>
         <Switch>
           <Route exact path={"/"} component={GameMap}/>
-          <Route exact path={"/about"} component={About}/>
-          <Route exact path={"/login"} component={Login}/>
-          <Route exact path={"/register"} component={Register}/>
+          <Route path={"/about"} component={About}/>
+          <Route path={"/login"} component={Login}/>
+          <Route path={"/registration"} component={Register}/>
           {/*Make Private*/}
         </Switch>
     </div>

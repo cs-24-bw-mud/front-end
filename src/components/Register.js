@@ -7,72 +7,66 @@ import {userRegister} from '../store/auth/Actions';
 
 
 
-const RegisterForm = props => {
-
-    return (
-        <>
-            <Form>
-                <div className="form-container">
-                        <h1 className="title">Sign Up</h1>
-                    <div className="form-contents"> 
-                        
-                        <div className="inline">
-                            <div className="labels">
-                                <ul>
-                                    <li>Username</li>
-                                    <li>Password</li>
-                                </ul>
-                            </div>
-                            <div classname="values">
-                                <label className="error-holder">
-                                    <Field className="regular-input" type="text" name="username"/>
-                                    {props.touched.username && props.errors.username && (
-                                        <p className="errormessage errormessage_positioning">{props.errors.username}</p>
-                                    )}
-                                </label>
-                                <label className="error-holder">
-                                    <Field className="regular-input" type="password" name="password"/>
-                                    {props.touched.password && props.errors.password && (
-                                        <p className="errormessage errormessage_positioning">{props.errors.password}</p>
-                                    )}
-                                </label>
-                                
-                            </div>
-                        </div>
-                        <div className="btn-container">
-                            <button className="submit-btn" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </Form>
-           
-        </>
-    );
+const RegisterForm = () => {
+  return (
+    <>
+      <Form>
+        <div className="form-container">
+          <h1 className="title">Sign Up</h1>
+          <div className="form-contents">
+            <div className="inline">
+              <div className="labels">
+                <ul>
+                  <li>Username</li>
+                  <li>Password</li>
+                  <li>Confirm Password</li>
+                </ul>
+              </div>
+              <div classname="values">
+                <Field className="input" type="text" name="username" />
+                <Field className="input" type="password" name="password1" />
+                <Field className="input" type="password" name="password2" />
+              </div>
+            </div>
+            <div className="btn-container">
+              <button className="submit-btn" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </Form>
+    </>
+  );
 };
 
 const FormikRegisterForm = withFormik({
-    mapPropsToValues({ username, password }) {
+    mapPropsToValues({ username, password1, password2 }) {
         return {
             username: username || "",
-            password: password || "",
+            password1: password1 || "",
+            password2: password2 || "",
         };
     },
 
     validationSchema: () => {
         const schema = {};
         schema.username = Yup.string().required("Please enter a username");
-        schema.password = Yup.string().required("Please enter a password");
+        schema.password1 = Yup.string().required("Please enter a password");
+        schema.password2 = Yup.string().required("Please confirm your password");
         
         return Yup.object().shape(schema);
     },
 
-    handleSubmit(values) {
-            userRegister(values); 
-        }
+    handleSubmit(values, {props}) {
+        return(
+            props.userRegister(values)
+        ) 
+    }
+
 })(RegisterForm);
 
 const mapStateToProps = state =>{
-    console.log(state)
     return {
         err: state.registerReducer.error
     };

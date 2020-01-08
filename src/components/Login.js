@@ -48,8 +48,8 @@ const FormikLoginForm = withFormik({
 
 const mapStateToProps = state => {
     return {
-        token: state.authReducer.token,
-        error: state.authReducer.error
+        token: state.loginReducer.token,
+        error: state.loginReducer.error
     };
 };
 

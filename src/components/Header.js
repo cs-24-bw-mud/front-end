@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../styles/header.scss'
 
 
 function Header () {
@@ -7,18 +8,28 @@ function Header () {
         <>
         <div className= "link-container">
             <div className="link">
-                <button component={Link} to={"/login"}>
+                <NavLink className="login-btn" to={"/login"}>
                     <span>Login</span>
-                </button>
+                </NavLink>
             </div>
             <div className="link">
-                <button component = {Link} to={"/register"}>
+                <NavLink className="register-btn" to={"/registration"}>
                     <span>Register</span>
-                </button>
+                </NavLink>
+            </div>
+            <div className="link">
+                <NavLink className="home-btn" to={"/home"}>
+                    <span>Home</span>
+                </NavLink>
+            </div>
+            <div className="link">
+                <NavLink to={"/about"}>
+                    <span>About</span>
+                </NavLink>
             </div>
         </div>
         </>
     )
 }
 
-export default withRouter(Header)
+export default (Header)

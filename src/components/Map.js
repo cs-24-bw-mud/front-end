@@ -3,7 +3,7 @@ import React from 'react';
 
 function GameMap() {
     return(
-        <div>
+        <div className="map-container">
             Map
         </div>
     )
