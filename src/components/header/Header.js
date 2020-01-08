@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/header.scss'
+import '../../styles/header.scss';
 
 
 function Header () {
@@ -15,11 +15,6 @@ function Header () {
             <div className="link">
                 <NavLink className="register-btn" to={"/registration"}>
                     <span>Register</span>
-                </NavLink>
-            </div>
-            <div className="link">
-                <NavLink className="home-btn" to={"/home"}>
-                    <span>Home</span>
                 </NavLink>
             </div>
             <div className="link">
