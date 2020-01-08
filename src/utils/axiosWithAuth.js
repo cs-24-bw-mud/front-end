@@ -3,13 +3,13 @@ import axios from 'axios';
 
 const axiosWithAuth = () => {
     const token = localStorage.getItem("token");
-    const apiUrl = "tbd"
+    const apiUrl = "https://mud-test-ag.herokuapp.com"
 
     return axios.create({
         baseURL: apiUrl,
         headers: {
             "Content-Type": "application/json",
-            Authorization: token
+            ["X-CSRFToken"]: token
         }
     });
 };
