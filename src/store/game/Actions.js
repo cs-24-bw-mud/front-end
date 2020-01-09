@@ -15,7 +15,7 @@ import {
 export const initPlayer = () => {
     return dispatch => {
         dispatch({ type: INIT_PLAYER_START });
-        axiosWithAuth()
+        axiosWithAuth('game')
             .get('/api/adv/init/')
             .then(res => {
                 dispatch({ type: INIT_PLAYER_SUCCESS, payload: res });
@@ -30,7 +30,7 @@ export const initPlayer = () => {
 export const getMap = () => {
     return dispatch => {
         dispatch({ type: FETCH_MAP_START });
-        axiosWithAuth()
+        axiosWithAuth('game')
             .get('/api/adv/rooms/')
             .then(res => {
                 // extract x and y coordinates and set to state
@@ -55,7 +55,7 @@ export const movePlayer = direction => {
     console.log(direction);
     return dispatch => {
         dispatch({ type: MOVE_PLAYER_START });
-        axiosWithAuth()
+        axiosWithAuth('game')
             .post('/api/adv/move/', { direction: direction })
             .then(res => {
                 console.log(res);
