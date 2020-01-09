@@ -1,42 +1,46 @@
 import React from "react";
-import {Form, Field, withFormik} from "formik/dist/index";
-import * as Yup from "yup";
+import { NavLink } from 'react-router-dom';
 import {connect} from "react-redux";
 
+import {Form, Field, withFormik} from "formik/dist/index";
+import * as Yup from "yup";
+
 import {userRegister} from '../store/auth/Actions';
+
+import '../styles/auth.scss';
 
 
 
 const RegisterForm = () => {
   return (
-    <>
-      <Form>
-        <div className="form-container">
-          <h1 className="title">Sign Up</h1>
-          <div className="form-contents">
-            <div className="inline">
-              <div className="labels">
-                <ul>
-                  <li>Username</li>
-                  <li>Password</li>
-                  <li>Confirm Password</li>
-                </ul>
-              </div>
-              <div classname="values">
-                <Field className="input" type="text" name="username" />
-                <Field className="input" type="password" name="password1" />
-                <Field className="input" type="password" name="password2" />
-              </div>
-            </div>
-            <div className="btn-container">
-              <button className="submit-btn" type="submit">
-                Submit
-              </button>
-            </div>
+    <div className="auth-container">
+      <h1 className="header">Sign Up</h1>
+      <div className="form-container">
+        <div className="corner-one"></div>
+        <div className="corner-two"></div>
+        <div className="corner-three"></div>
+        <div className="corner-four"></div>
+        <Form className="form-contents">
+          
+            <Field className="form-inputs" type="text" placeholder="Username *" name="username" />
+            <Field className="form-inputs" type="password" placeholder="Password *" name="password1" />
+            <Field className="form-inputs" type="password" placeholder="Confirm Password *" name="password2" />
+     
+
+          <div className="btn-container">
+            <button className="submit-btn" type="submit">
+              REGISTER
+            </button>
           </div>
-        </div>
-      </Form>
-    </>
+            <div className="switch-link">
+              <p>Have an account? Login</p>
+              <NavLink to={"/login"}>
+                <span>HERE</span>
+              </NavLink>
+            </div>
+        </Form>
+      </div>
+    </div>
   );
 };
 
