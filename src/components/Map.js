@@ -5,6 +5,7 @@ import Arrow from '../assets/arrow.svg';
 import { connect } from 'react-redux';
 import { getMap, initPlayer, movePlayer } from '../store/game/Actions';
 import MapView from './MapView';
+import RoomDetails from './RoomDetails';
 
 const GameMap = props => {
     console.log("Map.js props", props)
@@ -24,9 +25,8 @@ const GameMap = props => {
                 {console.log(props.map.coordinates)}
             </div>
             <div className="game-controls">
-                {/* <p>{props.data ? props.}</p> */}
-                <p>Exit Info</p>
-                <p>Player Info</p>
+                <RoomDetails details={props.player.data} />
+
                 <div className="movement">
                 <SVG onClick={(() => props.movePlayer('e'))} className="east" src={Arrow}/>
                 <SVG onClick={(() => props.movePlayer('s'))} className="south" src={Arrow}/>
