@@ -3,10 +3,9 @@
 .link-container{
     position: absolute;
     top: 0;
-    right: 0;
+    right: 30px;
     display: flex;
-    width: 350px;
-    font-size: 1rem;
+    font-size: 1.7rem;
     margin-top: 10px;
     justify-content: space-evenly;
 
@@ -17,4 +16,8 @@
     span{
         color: $lightblue;
     }
+}
+
+.protected{
+    width: 260px;
 }

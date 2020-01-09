@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="spa-container">
         <ProtectedNav path="/" component={ProtectedHeader}/>
-      
         <Switch>
           <Route path={"/about"} component={About}/>
           <Route path={"/login"} component={Login}/>
