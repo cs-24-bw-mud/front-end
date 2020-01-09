@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/map.scss';
 import SVG from 'react-inlinesvg';
 import Arrow from '../assets/arrow.svg';
-import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getMap, initPlayer } from '../store/game/Actions';
 
