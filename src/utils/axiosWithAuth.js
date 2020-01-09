@@ -10,7 +10,7 @@ const axiosWithAuth = () => {
         baseURL: apiUrl,
         headers: {
             "Content-Type": "application/json",
-            ['X-CSFRToken']: `token`
+            ["X-CSRFToken"]: `Token ${token}`
         }
     });
 };

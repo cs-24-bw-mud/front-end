@@ -12,13 +12,12 @@ import {
     MOVE_PLAYER_ERROR
 } from './Types';
 
-export const initPlayer = props => {
+export const initPlayer = () => {
     return dispatch => {
         dispatch({ type: INIT_PLAYER_START });
         axiosWithAuth()
             .get('/api/adv/init/')
             .then(res => {
-                console.log(res);
                 dispatch({ type: INIT_PLAYER_SUCCESS, payload: res });
             })
             .catch(err => {
@@ -39,7 +38,7 @@ export const getMap = () => {
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
-                    coordinates.push({ x: x, y: y })
+                    coordinates.push({ x: x, y: y });
                 })
                 res.coordinates = coordinates;
                 dispatch({ type: FETCH_MAP_SUCCESS, payload: res });
