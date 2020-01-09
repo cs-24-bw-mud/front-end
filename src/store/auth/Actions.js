@@ -18,7 +18,7 @@ export const userLogin = (data, history) => {
         .then(res => {
             localStorage.setItem('token', res.data.key);
             dispatch({type: LOGIN_SUCCESS, payload: res.data})
-            setTimeout(history.push('/'), 1000)
+            history.push('/')
         })
         .catch(err => {
             dispatch({type: LOGIN_FAILURE, payload: err})
