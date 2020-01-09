@@ -3,23 +3,28 @@ import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from 'yup';
 import {userLogin} from '../store/auth/Actions';
 import { connect } from 'react-redux';
+import '../styles/login.scss';
 
 const LoginForm = () => {
 
 return (
         <>
             <div className="login-container">
+                <h1 className= "header">Login</h1>
                 <div className="form-container">
+                    <div className="corner-one"></div>
+                    <div className="corner-two"></div>
+                    <div className="corner-three"></div>
+                    <div className="corner-four"></div>
                     <Form className="form-contents">
-                        <h1>Login</h1>
-                        <label>Username
-                            <Field className="form-inputs" type="text" name="username"/>
+                        <label>
+                            <Field className="form-inputs" type="text" placeholder="Username" name="username"/>
                         </label>
-                        <label>Password
-                            <Field className="form-inputs" type="password" name="password"/>
+                        <label>
+                            <Field className="form-inputs" type="password" placeholder="Password" name="password"/>
                         </label>
                         <div className="btn-container">
-                            <button className="submit-btn" type="submit">Submit</button>
+                            <button className="submit-btn" type="submit">LOGIN</button>
                         </div>
                     </Form>
                 </div>

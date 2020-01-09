@@ -1,5 +1,6 @@
 @import './styles/library.scss';
 @import './styles/about.scss';
+@import url('https://fonts.googleapis.com/css?family=Nova+Square&display=swap');
 
 body{
   height: 100vh;
@@ -10,7 +11,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: $lightblue
+  font-family: 'Nova Square', cursive;
 
 }
 
@@ -27,6 +28,7 @@ body{
   flex-direction: column;
   margin: 0 auto;
   align-self: center;
+  position: relative;
   background: linear-gradient(#000000 2%, rgba($blueblack, .63));
   outline: 16px solid rgba($orange, .2);
   height: 90%;
