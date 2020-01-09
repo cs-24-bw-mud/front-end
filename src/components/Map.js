@@ -12,7 +12,9 @@ function GameMap() {
                 MAP
             </div>
             <div className="game-controls">
-                CONTROLS
+                <p>Room Info</p>
+                <p>Exit Info</p>
+                <p>Player Info</p>
                 <div className="movement">
                 <SVG className="east" src={Arrow}/>
                 <SVG className="south" src={Arrow}/>
