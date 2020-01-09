@@ -11,7 +11,7 @@ function ProtectedHeader () {
     }
     return(
         <>
-        <div className= "link-container">
+        <div className= "link-container protected">
             <div className="link">
                 <NavLink className="home-btn" to={"/"}>
                     <span>Game</span>
@@ -24,7 +24,7 @@ function ProtectedHeader () {
             </div>
             <div className="link">
                 <NavLink to={"/login"} onClick={logOut}>
-                    <span>Log Out</span>
+                    <span>Logout</span>
                 </NavLink>
             </div>
         </div>

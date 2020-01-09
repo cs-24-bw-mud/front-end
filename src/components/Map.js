@@ -1,11 +1,27 @@
 import React from 'react';
-
+import '../styles/map.scss';
+import SVG from 'react-inlinesvg';
+import Arrow from '../assets/arrow.svg';
 
 function GameMap() {
     return(
-        <div className="map-container">
-            Map
+        <>
+        <h1 className="game-heading">Cyberpunk Mud</h1>
+        <div className="game-container">
+            <div className="map-container">
+                MAP
+            </div>
+            <div className="game-controls">
+                CONTROLS
+                <div className="movement">
+                <SVG className="east" src={Arrow}/>
+                <SVG className="south" src={Arrow}/>
+                <SVG className="north" src={Arrow}/>
+                <SVG className="west" src={Arrow}/>
+                </div>
+            </div>
         </div>
+        </>
     )
 }
 
