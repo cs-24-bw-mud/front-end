@@ -2,8 +2,19 @@ import React from 'react';
 import '../styles/map.scss';
 import SVG from 'react-inlinesvg';
 import Arrow from '../assets/arrow.svg';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getMap, initPlayer } from '../store/game/Actions';
 
-function GameMap() {
+
+const GameMap = props => {
+    
+    useEffect(() => {
+        props.getMap()
+        // TODO: User coming back Anonymous
+        props.initPlayer()
+    }, []);
+
     return(
         <>
         <h1 className="game-heading">Cyberpunk Mud</h1>
@@ -27,4 +38,10 @@ function GameMap() {
     )
 }
 
-export default GameMap;
+const mapStateToProps = state => {
+    return {
+        map: state.gameReducer.map,
+    }
+}
+
+export default connect(mapStateToProps, { getMap, initPlayer })(GameMap);
