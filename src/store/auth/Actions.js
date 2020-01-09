@@ -13,7 +13,7 @@ import {
 export const userLogin = (data, history) => {
     return dispatch => {
         dispatch({type: LOGIN_START});
-        return axiosWithAuth()
+        axiosWithAuth('auth')
         .post('/api/login/', data)
         .then(res => {
             localStorage.setItem('token', res.data.key);
@@ -26,13 +26,14 @@ export const userLogin = (data, history) => {
     }
 }
 
-export const userRegister = data => dispatch => {
+export const userRegister = (data, history) => dispatch => {
     dispatch({type: REGISTER_START});
-    return axiosWithAuth()
+    return axiosWithAuth('auth')
         .post('/api/registration/', data)
         .then(res => {
+            console.log("NOW")
             dispatch({type: REGISTER_SUCCESS, payload: res.data});
-            
+            history.push('/')
         })
         .catch(err => {
             dispatch({type: REGISTER_FAILURE, payload: err});
