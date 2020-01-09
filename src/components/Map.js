@@ -3,14 +3,12 @@ import '../styles/map.scss';
 import SVG from 'react-inlinesvg';
 import Arrow from '../assets/arrow.svg';
 import { connect } from 'react-redux';
-import { getMap, initPlayer } from '../store/game/Actions';
-
+import { getMap, initPlayer, movePlayer } from '../store/game/Actions';
 
 const GameMap = props => {
     
     useEffect(() => {
         props.getMap()
-        // TODO: User coming back Anonymous
         props.initPlayer()
     }, []);
 
@@ -26,10 +24,10 @@ const GameMap = props => {
                 <p>Exit Info</p>
                 <p>Player Info</p>
                 <div className="movement">
-                <SVG className="east" src={Arrow}/>
-                <SVG className="south" src={Arrow}/>
-                <SVG className="north" src={Arrow}/>
-                <SVG className="west" src={Arrow}/>
+                <SVG onClick={(() => props.movePlayer('e'))} className="east" src={Arrow}/>
+                <SVG onClick={(() => props.movePlayer('s'))} className="south" src={Arrow}/>
+                <SVG onClick={(() => props.movePlayer('n'))} className="north" src={Arrow}/>
+                <SVG onClick={(() => props.movePlayer('w'))} className="west" src={Arrow}/>
                 </div>
             </div>
         </div>
@@ -43,4 +41,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getMap, initPlayer })(GameMap);
+export default connect(mapStateToProps, { getMap, initPlayer, movePlayer })(GameMap);
