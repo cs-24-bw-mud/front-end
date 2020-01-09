@@ -4,9 +4,13 @@ import SVG from 'react-inlinesvg';
 import Arrow from '../assets/arrow.svg';
 import { connect } from 'react-redux';
 import { getMap, initPlayer, movePlayer } from '../store/game/Actions';
+import MapView from './MapView';
+import RoomDetails from './RoomDetails';
 
 const GameMap = props => {
-    
+    console.log("Map.js props", props)
+    console.log("Map.js",props.map)
+    console.log("Map.js coordinates",props.map.coordinates)
     useEffect(() => {
         props.getMap()
         props.initPlayer()
@@ -17,12 +21,12 @@ const GameMap = props => {
         <h1 className="game-heading">Cyberpunk Mud</h1>
         <div className="game-container">
             <div className="map-container">
-                MAP
+                <MapView data={props.map.coordinates} />
+                {console.log(props.map.coordinates)}
             </div>
             <div className="game-controls">
-                <p>Room Info</p>
-                <p>Exit Info</p>
-                <p>Player Info</p>
+                <RoomDetails details={props.player.data} />
+
                 <div className="movement">
                 <SVG onClick={(() => props.movePlayer('e'))} className="east" src={Arrow}/>
                 <SVG onClick={(() => props.movePlayer('s'))} className="south" src={Arrow}/>
@@ -38,6 +42,7 @@ const GameMap = props => {
 const mapStateToProps = state => {
     return {
         map: state.gameReducer.map,
+        player: state.gameReducer.player
     }
 }
 

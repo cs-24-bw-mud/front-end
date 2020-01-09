@@ -38,7 +38,8 @@ export const getMap = () => {
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
-                    coordinates.push({ x: x, y: y });
+                    let obj = { x: x, y: y, size: 10 }
+                    coordinates.push(obj);
                 })
                 res.coordinates = coordinates;
                 dispatch({ type: FETCH_MAP_SUCCESS, payload: res });
