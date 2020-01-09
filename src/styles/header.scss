@@ -1,5 +1,20 @@
+@import './library.scss';
+
 .link-container{
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
-    width: 750px;
+    width: 350px;
+    font-size: 1rem;
+    margin-top: 10px;
     justify-content: space-evenly;
+
+    a{
+        text-decoration: none;
+    }
+
+    span{
+        color: $lightblue;
+    }
 }

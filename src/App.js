@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="spa-container">
         <ProtectedNav path="/" component={ProtectedHeader}/>
-      <h1 className="app-header">Cyber</h1>
+      
         <Switch>
           <Route path={"/about"} component={About}/>
           <Route path={"/login"} component={Login}/>
