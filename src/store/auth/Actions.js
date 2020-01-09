@@ -18,7 +18,7 @@ export const userLogin = (data, history) => {
         .then(res => {
             localStorage.setItem('token', res.data.key);
             dispatch({type: LOGIN_SUCCESS, payload: res.data})
-            setTimeout(history.push('/'), 1000)
+            history.push('/')
         })
         .catch(err => {
             dispatch({type: LOGIN_FAILURE, payload: err})
@@ -26,13 +26,13 @@ export const userLogin = (data, history) => {
     }
 }
 
-export const userRegister = data => dispatch => {
+export const userRegister = (data, history) => dispatch => {
     dispatch({type: REGISTER_START});
     return axiosWithAuth()
         .post('/api/registration/', data)
         .then(res => {
             dispatch({type: REGISTER_SUCCESS, payload: res.data});
-            
+            history.push('/')
         })
         .catch(err => {
             dispatch({type: REGISTER_FAILURE, payload: err});
