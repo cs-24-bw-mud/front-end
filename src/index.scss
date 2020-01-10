@@ -16,9 +16,6 @@ body{
 
 }
 
-p {
-  font-family: 'Open Sans', sans-serif;
-}
 
 #root{
   width: 100%;
@@ -35,7 +32,7 @@ p {
   align-self: center;
   position: relative;
   background: linear-gradient(#000000 2%, rgba($blueblack, .63));
-  outline: 16px solid rgba($orange, .2);
+  outline: 16px ridge rgba($orange, .2);
   height: 90%;
   width: 80%;
   justify-content: space-evenly;

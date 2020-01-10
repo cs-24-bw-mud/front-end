@@ -14,12 +14,11 @@ const About = (props) => {
             <div className="top">
                 <h1>CyberPunk Mud</h1>
                 <p className="back-btn" onClick={() => props.history.push("/")}>
-                    <FontAwesomeIcon icon={faReply} color="#ff00c7" size="sm"/>
-                    Back
+                    <span className="icon">
+                        <FontAwesomeIcon icon={faReply} color="#3aece1" size="sm"/>
+                    </span>
+                    <span class="text">Back</span>
                 </p>
-                
-                
-                
             </div>
 
             <p className="description">CyperPunk Mud is an interactive Multi-User Dungeon (MUD) created during a <a href="https://www.lambdaschool.com" target="blank">Lambda School</a> Computer Science Build Week with a team of five developers. We were challenged to build and deploy a functional MUD server, migrate a unique world onto that server, generate rooms using an algorithm, and create a visualization.navigation client interface. Our Heroku deployed <a href="https://github.com/cs-24-bw-mud/cs-bw-mud" target="blank">backend</a> was built with Python and Django, while the <a href="https://github.com/cs-24-bw-mud/front-end" target="blank">frontend</a> is a React/Redux based application that uses react-vis for the map creation and SASS for styling.

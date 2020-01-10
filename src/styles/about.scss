@@ -11,11 +11,39 @@
         flex-wrap: wrap;
         justify-content: space-between;
         border-bottom: 1px solid $purple;
-
         
+        .back-btn {
+            background: linear-gradient(180deg, $purple 5%, $blue 75%);
+            margin-right: 2%;
+            padding: 5px 10px 5px;
+            border: solid 1px $pink;
+            border-radius: 20px;
+            -webkit-transition: all 0.5s ease-in-out; ;
+                    transition: all 0.5s ease-in-out;
+            
+
+            &:hover {
+                cursor: pointer;
+                background: linear-gradient(0deg, $purple 5%, $blue 75%);
+            }
+            
+            .icon {
+                padding:5px 10px 5px 4px;
+            }
+            
+            .text {
+                padding:5px 4px 5px 15px;
+                border-radius:0px 20px 20px 0px;
+                // border-left: solid .8px #0b004d;
+                -webkit-box-shadow: inset 2px 0px 5px 0px rgba(0,0,0,0.3);
+                   -moz-box-shadow: inset 2px 0px 5px 0px rgba(0,0,0,0.3);
+                        box-shadow: inset 2px 0px 5px 0px rgba(0,0,0,0.3);
+            }
+        }
     }
 
     .description {
+        font-family: 'Open Sans', sans-serif;
         padding: 1% 2%;
         line-height: 24px;
 
