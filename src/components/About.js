@@ -9,7 +9,7 @@ import tania from '../assets/tania.png';
 const About = () => {
     return(
         <div className="about-container">
-        <h1>About CyberPunk Mud</h1>
+        <h1>CyberPunk Mud</h1>
         <p>CyperPunk Mud is an interactive Multi-User Dungeon (MUD) created during a <a href="https://www.lambdaschool.com" target="blank">Lambda School</a> Computer Science Build Week with a team of five developers. We were challenged to build and deploy a functional MUD server, migrate a unique world onto that server, generate rooms using an algorithm, and create a visualization.navigation client interface. Our Heroku deployed <a href="https://github.com/cs-24-bw-mud/cs-bw-mud" target="blank">backend</a> was built with Python and Django, while the <a href="https://github.com/cs-24-bw-mud/front-end" target="blank">frontend</a> is a React/Redux based application that uses react-vis for the map creation and SASS for styling.
         </p>
         <h2>Meet the Team</h2>
