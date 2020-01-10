@@ -42,9 +42,9 @@ export const getMap = room => {
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
-                    let obj = { x: x, y: y, size: 10 }
+                    let obj = { x: x, y: y, size: 10, color: 1}
                     if (el[0] === room) {
-                        obj.size = 5
+                        obj.color = 2
                     }
                     coordinates.push(obj);
                 })
