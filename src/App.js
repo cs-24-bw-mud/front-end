@@ -6,14 +6,12 @@ import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProtectedHeader from './components/header/ProtectedHeader';
-import Header from './components/header/Header';
 
 import ProtectedRoute from './utils/protectedRoute';
 import ProtectedNav from './utils/protectedNav';
 
 //font-awesome library
 import "./assets/fontawesome"
-
 
 function App() {
   return (
