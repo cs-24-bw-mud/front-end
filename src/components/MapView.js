@@ -14,6 +14,7 @@ const FlexibleXYPlot = makeWidthFlexible(XYPlot);
 
 const MapView = props => {
   console.log("MapView", props);
+  //error occurs when you hit room 2 or in a direction you can't go in.
   
   useEffect(() => {
     if (props.data) {
