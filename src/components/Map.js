@@ -6,6 +6,8 @@ import MapView from './MapView';
 import RoomDetails from './RoomDetails';
 import { toast, ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleUp, faArrowAltCircleDown, faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 toast.configure();
 
@@ -30,46 +32,60 @@ const GameMap = props => {
     }, [props.player]);
 
     return (
-      <>
-        <ToastContainer
-            className='toast-container'
-            toastClassName='dark-toast'
-            transition={Slide}
-            hideProgressBar={true}
-        />
-        <h1 className="game-heading">CyberPunk Mud</h1>
-        <div className="game-container">
-          <div className="map-container">
-            <MapView data={props.map.coordinates} />
-          </div>
-          <div className="game-controls">
-            <RoomDetails details={props.player.data} />
-            <div className='movement'>
-                {props.player.data &&
+        <>
+            <ToastContainer
+                className='toast-container'
+                toastClassName='dark-toast'
+                transition={Slide}
+                hideProgressBar={true}
+            />
+            <h1 className="game-heading">CyberPunk Mud</h1>
+            <div className="game-container">
+            <div className="map-container">
+                <MapView data={props.map.coordinates} />
+                {/* {console.log(props.map.coordinates)} */}
+            </div>
+            <div className="game-controls">
+                <RoomDetails details={props.player.data} />
+                <div className='movement'>
                     <span className='direction-container'>
                         <div className='direction-ns'>
-                            <p className='arrow' onClick={ props.player.data.n_to === 0 ? null : (() => props.movePlayer('n')) }>⇧</p>
+                            <p className='arrow' onClick={(() => props.movePlayer('n'))}>
+                                {/* ⇧ */}
+                                <FontAwesomeIcon icon={faArrowAltCircleUp}  size="sm"/>
+                            </p>
                         </div>
 
                         <span className='container-ew'>
                             <div className='direction-ew'>
-                                <p className='arrow' onClick={ props.player.data.w_to === 0 ? null : (() => props.movePlayer('w')) }>⇦</p>
+                                
+                                <p className='arrow' onClick={(() => props.movePlayer('w'))}>
+                                    {/* ⇦ */}
+                                    <FontAwesomeIcon icon={faArrowAltCircleLeft} size="sm" />
+                                </p>
                             </div> 
 
                             <div className='direction-ew'>
-                                <p className='arrow' onClick={ props.player.data.e_to === 0 ? null : (() => props.movePlayer('e')) }>⇨</p>
+                                <p className='arrow' onClick={(() => props.movePlayer('e'))}>
+                                    {/* ⇨ */}
+                                    <FontAwesomeIcon icon={faArrowAltCircleRight}  size="sm"/>
+                                </p>
                             </div> 
                         </span>
 
                         <div className='direction-ns'>
-                            <p className='arrow' onClick={ props.player.data.s_to === 0 ? null : (() => props.movePlayer('s')) }>⇩</p>
+                            <p className='arrow' onClick={(() => props.movePlayer('s'))}>
+                                {/* ⇩ */}
+                                <FontAwesomeIcon icon={faArrowAltCircleDown}  size="sm"/>
+                            </p>
+
                         </div>
                     </span>
-                }
+
+                </div>
             </div>
-          </div>
-        </div>
-      </>
+            </div>
+        </>
     );
 }
 

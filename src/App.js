@@ -10,6 +10,13 @@ import ProtectedHeader from './components/header/ProtectedHeader';
 import ProtectedRoute from './utils/protectedRoute';
 import ProtectedNav from './utils/protectedNav';
 
+<<<<<<< HEAD
+=======
+//font-awesome library
+import "./assets/fontawesome"
+
+
+>>>>>>> 335dcd782e2cabb41cb10430a749c950a03ec1d8
 function App() {
   return (
     <div className="spa-container">

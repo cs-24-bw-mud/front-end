@@ -9,6 +9,7 @@ import combineReducers from "./store/index";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
+
 const store = createStore(combineReducers, applyMiddleware(thunk));
 
 
