@@ -27,18 +27,26 @@ export const initPlayer = () => {
     }
 };
 
-export const getMap = () => {
+export const getMap = room => {
     return dispatch => {
         dispatch({ type: FETCH_MAP_START });
         axiosWithAuth('game')
             .get('/api/adv/rooms/')
             .then(res => {
+                console.log('run')
                 // extract x and y coordinates and set to state
                 let coordinates = [];
+                if (document.querySelector('[style="fill: white; stroke: #ff00c7; stroke-width: 3px;"]')) {
+                    document.querySelector('[style="fill: white; stroke: #ff00c7; stroke-width: 3px;"]').setAttribute('style', 'fill: #150042; stroke: #ff00c7; stroke-width: 3px;')
+                }
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
-                    coordinates.push({ x: x, y: y });
+                    let obj = { x: x, y: y, size: 10 }
+                    if (el[0] === room) {
+                        obj.size = 5
+                    }
+                    coordinates.push(obj);
                 })
                 res.coordinates = coordinates;
                 dispatch({ type: FETCH_MAP_SUCCESS, payload: res });
