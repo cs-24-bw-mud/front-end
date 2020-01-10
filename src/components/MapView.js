@@ -26,9 +26,10 @@ const MapView = props => {
             style={{
               strokeWidth: "3px"
             }}
-            lineStyle={{ stroke: "#ff00c7" }}
-            markStyle={{ stroke: "#3aece1", fill:'#150042'}}
+            lineStyle={{ stroke: "#3aece1" }}
+            markStyle={{ stroke: "#ff00c7", fill:'#150042' }}
             data={props.data}
+            // animation = {damping: 3, stiffness: 3}
           />
         </XYPlot>
       )}

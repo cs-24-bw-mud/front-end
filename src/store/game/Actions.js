@@ -27,20 +27,32 @@ export const initPlayer = () => {
     }
 };
 
-export const getMap = () => {
+export const getMap = room => {
     return dispatch => {
         dispatch({ type: FETCH_MAP_START });
         axiosWithAuth('game')
             .get('/api/adv/rooms/')
             .then(res => {
+                console.log("Actions",res);
+                console.log("Actions", room)
                 // extract x and y coordinates and set to state
                 let coordinates = [];
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
                     let obj = { x: x, y: y, size: 10 }
+                    if (el[0] === room) {
+                        // obj.fill = '#3aece1'
+                        // obj.size = 100
+                        // obj.fill = 'white'
+                        // obj.style = { ['outline-style']: 'inset' }
+                        // obj.color = '#3aece1'
+                    } else {
+                        // obj.size = 10
+                    }
                     coordinates.push(obj);
                 })
+                console.log("Actions", coordinates)
                 res.coordinates = coordinates;
                 dispatch({ type: FETCH_MAP_SUCCESS, payload: res });
             })
