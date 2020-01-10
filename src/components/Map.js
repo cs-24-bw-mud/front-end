@@ -4,26 +4,41 @@ import { connect } from 'react-redux';
 import { getMap, initPlayer, movePlayer } from '../store/game/Actions';
 import MapView from './MapView';
 import RoomDetails from './RoomDetails';
+import { toast, ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleUp, faArrowAltCircleDown, faArrowAltCircleRight, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
+toast.configure();
+
 const GameMap = props => {
-    // console.log("Map.js props", props)
-    console.log("Map.js",props.player)
-    // console.log("Map.js coordinates",props.map.coordinates)
     useEffect(() => {
-        props.getMap('Room 2')
         props.initPlayer()
     }, []);
 
     useEffect(() => {
         if(props.player.data) {
-            props.getMap(props.player.data.title)
+            // if no room in direction
+            if(props.player.data.error_msg) {
+                toast(props.player.data.error_msg, {
+                    autoClose: 3000,
+                    draggable: false,
+                    type: toast.TYPE.INFO
+                })
+            } else {
+                props.getMap(props.player.data.title)
+            }
         }
-    }, [props.player.data]);
+    }, [props.player]);
 
     return (
         <>
+            <ToastContainer
+                className='toast-container'
+                toastClassName='dark-toast'
+                transition={Slide}
+                hideProgressBar={true}
+            />
             <h1 className="game-heading">CyberPunk Mud</h1>
             <div className="game-container">
             <div className="map-container">

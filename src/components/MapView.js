@@ -13,20 +13,17 @@ import {
 const FlexibleXYPlot = makeWidthFlexible(XYPlot);
 
 const MapView = props => {
-  console.log("MapView", props);
-  //error occurs when you hit room 2 or in a direction you can't go in.
   
   useEffect(() => {
     if (props.data) {
-      console.log("hello")
-      document.querySelector('[r="1"]').setAttribute('style', 'fill: white; stroke: #ff00c7; stroke-width: 3px;')
-      document.querySelector('[r="1"]').setAttribute('r', '10')
+        // target first room after init player by size
+        if (document.querySelector('[r="1"]')) {
+            // set color as active and size to match all others
+            document.querySelector('[r="1"]').setAttribute('style', 'fill: white; stroke: #ff00c7; stroke-width: 3px;')
+            document.querySelector('[r="1"]').setAttribute('r', '10')
+        }
     }
-  }, [props.data])
-
-  useEffect(() => {
-    console.log('hi')
-  }, [props.data])
+  }, [props.data]);
 
   return (
     <div className="map-view">
@@ -37,7 +34,6 @@ const MapView = props => {
           <XAxis />
           <YAxis />
           <LineMarkSeries
-            className="linemark-series-example"
             style={{
               strokeWidth: "3px"
             }}
@@ -45,7 +41,6 @@ const MapView = props => {
             lineStyle={{ stroke: "#3aece1" }}
             markStyle={{ stroke: "#ff00c7", fill:'#150042' }}
             data={props.data}
-            // animation = {damping: 3, stiffness: 3}
           />
         </FlexibleXYPlot>
       )}

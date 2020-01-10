@@ -18,7 +18,6 @@ const initialState = {
     player: {},
 };
 
-// TODO: check payload objects for each switch case
 export const gameReducer = (state = initialState, {type, payload}) => {
     switch(type){
         case INIT_PLAYER_START:
