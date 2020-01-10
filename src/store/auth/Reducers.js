@@ -57,6 +57,8 @@ export const registerReducer = (state = initialState, {type, payload}) => {
             return {
                 ...state,
                 error: "",
+                isAuth: true,
+                token: payload.token,
                 isLoading: false,
                 users: [...state.users, payload],
             };

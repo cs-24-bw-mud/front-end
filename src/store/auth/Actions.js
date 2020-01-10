@@ -26,19 +26,21 @@ export const userLogin = (data, history) => {
     }
 }
 
-export const userRegister = (data, history) => dispatch => {
-    dispatch({type: REGISTER_START});
-    return axiosWithAuth('auth')
+export const userRegister = (data, history) => {
+     return dispatch => {
+        dispatch({type: REGISTER_START});
+        return axiosWithAuth('auth')
         .post('/api/registration/', data)
         .then(res => {
-            console.log("NOW")
+            localStorage.setItem('token', res.data.key);
             dispatch({type: REGISTER_SUCCESS, payload: res.data});
-            history.push('/')
+            history.push('/login')
         })
         .catch(err => {
             dispatch({type: REGISTER_FAILURE, payload: err});
         });
 };
+}
 
 export const logout = (history) => {
     return dispatch => {

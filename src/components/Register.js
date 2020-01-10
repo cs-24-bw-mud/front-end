@@ -45,35 +45,34 @@ const RegisterForm = () => {
 };
 
 const FormikRegisterForm = withFormik({
-    mapPropsToValues({ username, password1, password2 }) {
-        return {
-            username: username || "",
-            password1: password1 || "",
-            password2: password2 || "",
-        };
-    },
+  mapPropsToValues({ username, password1, password2 }) {
+    return {
+      username: username || "",
+      password1: password1 || "",
+      password2: password2 || ""
+    };
+  },
 
-    validationSchema: () => {
-        const schema = {};
-        schema.username = Yup.string().required("Please enter a username");
-        schema.password1 = Yup.string().required("Please enter a password");
-        schema.password2 = Yup.string().required("Please confirm your password");
-        
-        return Yup.object().shape(schema);
-    },
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required('Please enter a username'),
+    password1: Yup.string().required('Enter a password'),
+    password2: Yup.string().required('confirm password')
+}),
 
-    handleSubmit(values, {props}) {
-        return(
-            props.userRegister(values, props.history)
-        ) 
-    }
+  handleSubmit(values, { props }) {
+    props.userRegister(values, props.history).then(() =>
+    props.history.push('/')
+    )
+    console.log('here', props)
+  }
 
 })(RegisterForm);
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return {
-        err: state.registerReducer.error
-    };
+      token: state.registerReducer.token,
+      err: state.registerReducer.error
+  };
 };
 
 

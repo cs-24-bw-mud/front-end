@@ -54,7 +54,7 @@ const FormikLoginForm = withFormik({
     },
 
     validationSchema: Yup.object().shape({
-        username: Yup.string().required('Please enter a username'),
+        username: Yup.string().required('Please enter username'),
         password: Yup.string().required('Enter a password')
     }),
 
@@ -71,7 +71,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(
-    mapStateToProps,
-    {userLogin}
-)(FormikLoginForm);
+export default connect(mapStateToProps, {userLogin})(FormikLoginForm);
