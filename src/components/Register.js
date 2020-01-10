@@ -63,7 +63,7 @@ const FormikRegisterForm = withFormik({
     props.userRegister(values, props.history).then(() =>
     props.history.push('/')
     )
-    console.log('here', props)
+    console.log('PROPS', props)    
   }
 
 })(RegisterForm);

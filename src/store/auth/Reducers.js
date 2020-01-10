@@ -16,6 +16,7 @@ import {
   }
 
 export const loginReducer = (state = initialState, {type, payload}) => {
+    console.log('PAYLOAD', payload)
     switch(type){
         case LOGIN_START:
             return {
@@ -29,7 +30,7 @@ export const loginReducer = (state = initialState, {type, payload}) => {
                 error: "",
                 isAuth: true,
                 isLoading: false,
-                token: payload.token,
+                token: payload.key,
                 isSuccess: true
             };
             case LOGIN_FAILURE:
@@ -58,7 +59,7 @@ export const registerReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 error: "",
                 isAuth: true,
-                token: payload.token,
+                token: payload.key,
                 isLoading: false,
                 users: [...state.users, payload],
             };
