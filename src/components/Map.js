@@ -43,7 +43,7 @@ const GameMap = props => {
                             </div> 
 
                             <div className='direction-ew'>
-                                <p className='arrow' onClick={ props.player.data.e_to == 0 ? null : (() => props.movePlayer('e')) }>⇨</p>
+                                <p className='arrow' onClick={ props.player.data.e_to === 0 ? null : (() => props.movePlayer('e')) }>⇨</p>
                             </div> 
                         </span>
 
