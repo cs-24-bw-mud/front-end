@@ -33,26 +33,21 @@ export const getMap = room => {
         axiosWithAuth('game')
             .get('/api/adv/rooms/')
             .then(res => {
-                console.log("Actions",res);
-                console.log("Actions", room)
+                console.log('run')
                 // extract x and y coordinates and set to state
                 let coordinates = [];
+                if (document.querySelector('[style="fill: white; stroke: #ff00c7; stroke-width: 3px;"]')) {
+                    document.querySelector('[style="fill: white; stroke: #ff00c7; stroke-width: 3px;"]').setAttribute('style', 'fill: #150042; stroke: #ff00c7; stroke-width: 3px;')
+                }
                 res.data.rooms.map((el, i) => {
                     const x = el[6];
                     const y = el[7];
                     let obj = { x: x, y: y, size: 10 }
                     if (el[0] === room) {
-                        // obj.fill = '#3aece1'
-                        // obj.size = 100
-                        // obj.fill = 'white'
-                        // obj.style = { ['outline-style']: 'inset' }
-                        // obj.color = '#3aece1'
-                    } else {
-                        // obj.size = 10
+                        obj.size = 5
                     }
                     coordinates.push(obj);
                 })
-                console.log("Actions", coordinates)
                 res.coordinates = coordinates;
                 dispatch({ type: FETCH_MAP_SUCCESS, payload: res });
             })

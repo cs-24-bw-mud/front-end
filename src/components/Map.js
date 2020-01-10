@@ -9,20 +9,22 @@ import RoomDetails from './RoomDetails';
 
 const GameMap = props => {
     // console.log("Map.js props", props)
-    // console.log("Map.js",props.map)
+    console.log("Map.js",props.player)
     // console.log("Map.js coordinates",props.map.coordinates)
     useEffect(() => {
-        props.getMap('Room 1')
+        props.getMap('Room 2')
         props.initPlayer()
     }, []);
 
-    // useEffect(() => {
-    //     props.getMap(props.player.data.title)
-    // }, [props.player.data]);
+    useEffect(() => {
+        if(props.player.data) {
+            props.getMap(props.player.data.title)
+        }
+    }, [props.player.data]);
 
     return (
       <>
-        <h1 className="game-heading">Cyberpunk Mud</h1>
+        <h1 className="game-heading">CyberPunk Mud</h1>
         <div className="game-container">
           <div className="map-container">
             <MapView data={props.map.coordinates} />
