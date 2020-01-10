@@ -1,22 +1,24 @@
 import React from "react";
 
 import {
-  XYPlot,
   XAxis,
   YAxis,
   VerticalGridLines,
+  XYPlot,
+  makeWidthFlexible,
   HorizontalGridLines,
-  CustomSVGSeries,
   LineMarkSeries
 } from "react-vis";
+
+const FlexibleXYPlot = makeWidthFlexible(XYPlot);
 
 const MapView = props => {
   console.log("MapView", props);
 
   return (
-    <div className="MapView">
+    <div className="map-view">
       {props.data && (
-        <XYPlot width={500} height={500}>
+        <FlexibleXYPlot height={500}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
@@ -30,7 +32,7 @@ const MapView = props => {
             markStyle={{ stroke: "#3aece1", fill:'#150042'}}
             data={props.data}
           />
-        </XYPlot>
+        </FlexibleXYPlot>
       )}
     </div>
   );
