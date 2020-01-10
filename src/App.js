@@ -6,17 +6,9 @@ import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProtectedHeader from './components/header/ProtectedHeader';
-import Header from './components/header/Header';
 
 import ProtectedRoute from './utils/protectedRoute';
 import ProtectedNav from './utils/protectedNav';
-
-// [x] TODO: create fn to initialize a player upon login
-// [x] TODO: create fn to fetch map on mount
-// [x] TODO: create fn to move player onClick
-// [x] TODO: user coming back as Anonymous on init request
-
-// [ ] TODO: create a map builder fn (divs or library)
 
 function App() {
   return (
