@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { getMap, initPlayer, movePlayer } from '../store/game/Actions';
 import MapView from './MapView';
 import RoomDetails from './RoomDetails';
+import { toast, ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 const GameMap = props => {
     useEffect(() => {
@@ -14,7 +18,11 @@ const GameMap = props => {
         if(props.player.data) {
             // if no room in direction
             if(props.player.data.error_msg) {
-                return
+                toast(props.player.data.error_msg, {
+                    autoClose: 3000,
+                    draggable: false,
+                    type: toast.TYPE.INFO
+                })
             } else {
                 props.getMap(props.player.data.title)
             }
@@ -23,6 +31,12 @@ const GameMap = props => {
 
     return (
       <>
+        <ToastContainer
+            className='toast-container'
+            toastClassName='dark-toast'
+            transition={Slide}
+            hideProgressBar={true}
+        />
         <h1 className="game-heading">CyberPunk Mud</h1>
         <div className="game-container">
           <div className="map-container">
