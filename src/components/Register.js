@@ -64,7 +64,7 @@ const FormikRegisterForm = withFormik({
 
     handleSubmit(values, {props}) {
         return(
-            props.userRegister(values)
+            props.userRegister(values, props.history)
         ) 
     }
 
